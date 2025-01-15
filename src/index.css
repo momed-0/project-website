@@ -1,0 +1,61 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 20px;
+  background-color:#f6f6f2;
+  color:#388087;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-animation: body 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both, background-color-change 5s linear infinite alternate;
+          animation: body 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both, background-color-change 5s linear infinite alternate;
+}
+
+
+
+@-webkit-keyframes body {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes body {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+
