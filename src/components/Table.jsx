@@ -55,7 +55,7 @@ const CsvTable = () => {
             {data.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {headers.map((header, colIndex) => (
-                  <td key={colIndex}>{row[header]}</td>
+                  <td key={colIndex} data-label={header}>{row[header]}</td>
                 ))}
               </tr>
             ))}
