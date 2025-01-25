@@ -1,59 +1,55 @@
 import React, { useState, useEffect } from "react";
 import './Table.css';
 
+
+
 const TrafficDataTable = () => {
   const [data, setData] = useState([]);
   const [headers, setHeaders] = useState([]);
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
 
-  // Function to fetch data from the API
-
+  // Initial data fetch
   useEffect(() => {
     const fetchTrafficDataInitial = async () => {
       try {
-        const response = await fetch('https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=1737184640&end_time=1737184651');
-          
-  
-  
+        const response = await fetch(
+          'https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=1737184640&end_time=1737184651'
+        );
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+
         const result = await response.json();
-  
-        
-  
+
         if (result && result.length > 0) {
-          
-          // Extract headers dynamically from the first object
-          setHeaders(Object.keys(result[0]));
-          // Set data to state
-          setData(result);
+          setHeaders(Object.keys(result[0])); // Extract headers dynamically
+          setData(result); // Set data to state
         } else {
           setData([]);
-          alert("No data found for the provided time range.");
+          alert('No data found for the provided time range.');
         }
       } catch (error) {
-        console.error("Error fetching traffic data:", error);
+        console.error('Error fetching traffic data:', error);
+        alert('Failed to fetch traffic data. Please try again later.');
       }
     };
 
     fetchTrafficDataInitial();
   }, []);
+
+  // Fetch data based on user input
   const fetchTrafficData = async () => {
     if (!startTime || !endTime) {
-      alert("Please provide both start time and end time!");
+      alert('Please provide both start time and end time!');
       return;
     }
 
     try {
-      const response = await fetch('https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=1737184640&end_time=1737184651');
-        
-
-
-    
-
+      const response = await fetch(
+        `https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=${startTime}&end_time=${endTime}`
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -61,24 +57,19 @@ const TrafficDataTable = () => {
 
       const result = await response.json();
 
-      
-
       if (result && result.length > 0) {
-        
-        // Extract headers dynamically from the first object
         setHeaders(Object.keys(result[0]));
-        // Set data to state
         setData(result);
       } else {
         setData([]);
-        alert("No data found for the provided time range.");
+        alert('No data found for the provided time range.');
       }
     } catch (error) {
-      console.error("Error fetching traffic data:", error);
+      console.error('Error fetching traffic data:', error);
+      alert('Failed to fetch traffic data. Please try again later.');
     }
   };
 
-  // Render table or message based on data
   const renderTable = () => {
     if (data.length === 0) {
       return <p>No data available for the selected time range.</p>;
