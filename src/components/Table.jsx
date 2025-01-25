@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Table.css';
-
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 
 const TrafficDataTable = () => {
@@ -13,9 +13,8 @@ const TrafficDataTable = () => {
   useEffect(() => {
     const fetchTrafficDataInitial = async () => {
       try {
-        const response = await fetch(
-          'https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=1737184640&end_time=1737184651'
-        );
+        const response = await fetch(`${API_ENDPOINT}?start_time=1737184640&end_time=1737184751`); // Default time range
+
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -47,9 +46,8 @@ const TrafficDataTable = () => {
     }
 
     try {
-      const response = await fetch(
-        `https://50vrn9obe2.execute-api.us-east-1.amazonaws.com/API1/Count?start_time=${startTime}&end_time=${endTime}`
-      );
+      const response = await fetch(`${API_ENDPOINT}?start_time=${startTime}&end_time=${endTime}`);
+
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
