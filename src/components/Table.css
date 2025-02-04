@@ -23,8 +23,9 @@
     padding: 12px 15px;
     background-color: #c2edce; /* Soft Blue */
     color: #388087;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
+    align-items: center;    
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-bottom: 2px solid #ddd;
@@ -94,4 +95,63 @@
         font-weight: bold;
         text-align: left;
     }
+}
+
+.table-div div {
+    dIsplay: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+}
+
+.table-div label {
+    display: flex; /* Change to flex layout */
+    align-items: center; /* Vertically center the label text with the input */
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #555;
+}
+
+.table-div input {
+    margin-left: 10px; /* Add spacing between the label and input */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.table-div input:focus {
+    border-color: #388087;
+    outline: none;
+}
+
+.table-div input:hover {
+    border-color: #388087;
+}
+
+.table-div input::placeholder {
+    color: #bbb;
+}
+
+.table-div button {
+    background-color: #388087;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin-bottom: 0.8rem;
+}
+
+.table-div button:hover {
+    background-color: #2a6469;
+    
+    transform: scale(1.05);
+} 
+
+.table-div-inputs{
+    margin-left:2rem;
+    margin-top: 3rem;
 }

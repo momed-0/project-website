@@ -100,7 +100,7 @@ const TrafficDataTable = () => {
   return (
     <div className="table-div">
       <h1>Traffic Data</h1>
-      <div>
+      <div className="table-div-inputs">
         <label>
           Start Time:{" "}
           <input
