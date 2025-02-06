@@ -13,7 +13,7 @@ const TrafficDataTable = () => {
   useEffect(() => {
     const fetchTrafficDataInitial = async () => {
       try {
-        const response = await fetch(`${API_ENDPOINT}?start_time=1737184640&end_time=1737184751`); // Default time range
+        const response = await fetch(`${API_ENDPOINT}?start_time=1737184640&end_time=1737184642`); // Default time range
 
 
         if (!response.ok) {
